@@ -1,23 +1,56 @@
-# This is a guess the number game.
 import random
-secretNumber = random.randint(1, 20)
-print('I am thinking of a number between 1 and 20.')
+
+numberOfGuesses = 0
+
 
 # Ask the player to guess 6 times.
-for guessesTaken in range(1, 7):
-    print('Take a guess.')
+
+while True:
+    numberOfGuesses=''
+    secretNumber = random.randint (1,20)
+    print('I am thinking of a number between 1 and 20.')
+    print('')    
+    print('How many tries do you want to have?')
     try:
-        guess = int(input())
-        if guess < secretNumber:
-                print('Your guess is too low.')
-        elif guess > secretNumber:
+        numberOfGuesses=int(input())
+        if numberOfGuesses<1:
+            print('The number of tries you entered is too low')
+            print('')
+            continue
+        elif numberOfGuesses>20:
+            print('The number of tries you entered is too high')
+            print('')
+            continue
+        elif numberOfGuesses>=1 or numberOfGuesses<=20:
+            print('value accepted!')
+             #This condition accepts the valid number of tries
+    except ValueError or TypeError:
+        print('Please enter a number between 1 to 10')
+        print('')
+        continue
+    for guessesTaken in range (numberOfGuesses):
+        print('Take a guess.')
+        try:
+            guess = int (input())
+            if guess < secretNumber:
+                print ('Your guess is too low.')
+            elif guess > secretNumber:
                 print('Your guess is too high.')
-        else:
-                break    # This condition is the correct guess!
-    except ValueError:
-        print('please enter a number')
+            else:
+                break # This condition is the correct guess!
+        except ValueError:
+            print('please enter a number')
+        continue
+    if guess == secretNumber:
+        print('good job! You guessed my number in ' +str(guessesTaken) + 'guesses')
+        print('')
+        print('You Win! Next Game!')
+        print('')
+    else:
+        print('Nope. The number I was thingking of was ' +str (secretNumber))
+        print('')
+        print('You lost. Next Game!')
+        print(' ')
+        print(' ')
+        
     continue
-if guess == secretNumber:
-    print('Good job! You guessed my number in ' + str(guessesTaken) + ' guesses!')
-else:
-    print('Nope. The number I was thinking of was ' + str(secretNumber))
