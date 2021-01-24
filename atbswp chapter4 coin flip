@@ -14,7 +14,7 @@ def myRand(): # Code that creates a list of 100 'heads' or 'tails' values.
             hOt.append('T')
 
 
-def consecutiveCheck (thelist):
+def consecutiveCheck (thelist): # code that checks if 6 successive indices from the list are the same
     for i in range(100): #checking for streaks of 6 heads/tails
         global numberOfStreaks
         if hOt[i:i+6] == ['H','H','H','H','H','H']:
