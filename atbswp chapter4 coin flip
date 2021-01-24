@@ -27,8 +27,8 @@ def consecutiveCheck (thelist): # code that checks if 6 successive indices from 
 
 
 for experimentNumber in range(1000):
-    myRand()
-    consecutiveCheck(hOt)
+    myRand() # function call to generate list of H or T.
+    consecutiveCheck(hOt) #function call to check 6 consecutive H or T.
 print(hOt)
    
     # Code that checks if there is a streak of 6 heads or tails in a row.
